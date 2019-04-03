@@ -150,18 +150,18 @@ def listen_linux(frame_rate=44100, interval=0.1):
             # 신호 전송이 끝난것을 알기 위해서 dom < 100을 이용한다.
             # end_packet = true이어도 그냥 보내지는 주파수가 HANDSHAKE_END_HZ였을수도 있기에...
             byte_stream = extract_packet(packet)
-            print(byte_stream)
+            #print(byte_stream)
             
             try: #에러 체크하기
                 byte_stream = RSCodec(FEC_BYTES).decode(byte_stream) #reedSolomon 기술
                 byte_stream = byte_stream.decode("utf-8")
-                print(byte_stream)
+                #print(byte_stream)
 
                 display(byte_stream)
 
             except ReedSolomonError as e:
                 pass
-                print("{}: {}".format(e, byte_stream))
+                #print("{}: {}".format(e, byte_stream))
 
             packet = []
             in_packet = False
