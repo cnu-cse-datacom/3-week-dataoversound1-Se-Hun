@@ -152,7 +152,7 @@ def listen_linux(frame_rate=44100, interval=0.1):
                 display(byte_stream)
             except ReedSolomonError as e:
                 pass
-                print("{}: {}".format(e, byte_stream))
+                #print("{}: {}".format(e, byte_stream))
 
             packet = []
             in_packet = False
